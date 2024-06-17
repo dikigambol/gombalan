@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombalan Cinta</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ff4081;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #e91e63;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Romantisan Versi Sayang Aku</h1>
+        <p id="gombalan">Klik tombol di bawah untuk menampilkan kata-kata</p>
+        <button onclick="tampilkanGombalan()">Beri Aku Kata</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+<script>
+    const gombalanList = [
+        "Sayang aku tidak boleh sedih terus yaa, kan ada aku. I LOVE U",
+        "Sayang aku, kalau kamu jadi senar gitar, aku nggak mau main gitar. Karena takut senar hatiku putus.",
+        "Sayang aku, apakah kamu punya peta? Soalnya aku tersesat dalam senyumanmu.",
+        "Sayang aku, kamu tahu nggak? Aku nggak butuh matahari lagi, karena senyummu sudah menerangi hariku.",
+        "Sayang aku, kamu itu seperti kopi, bikin aku ketagihan.",
+        "Sayang aku, aku nggak mau jadi Superman. Aku cuma mau jadi pria yang selalu ada buat kamu.",
+        "Sayang aku, kalau kamu jadi bunga, aku mau jadi lebah yang selalu mengitarimu.",
+        "Sayang aku, kamu itu seperti es krim di hari yang panas, bikin aku meleleh.",
+        "Sayang aku, kamu nggak butuh kaca, karena kamu sudah cantik dari hatimu.",
+        "Sayang aku, aku mau jadi alasan di balik senyummu setiap hari.",
+        "Sayang aku, bersama kamu, detik terasa lebih bermakna.",
+        "Sayang aku, kalau cinta itu permainan, aku pasti selalu menang karena aku punya kamu.",
+        "Sayang aku, setiap kali aku lihat kamu, aku ingat kalau malaikat itu nyata.",
+        "Sayang aku, aku selalu merasa hangat setiap kali melihat senyummu.",
+        "Sayang aku, kalau kamu jadi hujan, aku mau jadi payung yang selalu melindungimu.",
+        "Sayang aku, kamu adalah alasan aku bangun setiap pagi dengan senyuman.",
+        "Sayang aku, aku nggak perlu lampu, karena cahayamu cukup menerangi hariku.",
+        "Sayang aku, kalau aku jadi air, aku mau mengalir ke hatimu.",
+        "Sayang aku, kamu adalah jawaban dari semua doa-doa malamku.",
+        "Sayang aku, kalau cinta itu perjalanan, aku mau menempuhnya dengan kamu.",
+        "Sayang aku, hatiku seperti puzzle, dan kamu adalah potongan yang hilang.",
+        "Sayang aku, kalau kamu jadi lagu, aku mau terus menyanyikanmu.",
+        "Sayang aku, kamu itu seperti vitamin, bikin aku sehat dengan cinta.",
+        "Sayang aku, kalau cinta itu seni, kamu adalah masterpiece-nya.",
+        "Sayang aku, aku nggak bisa berhenti tersenyum setiap kali memikirkanmu.",
+        "Sayang aku, kalau kamu jadi mimpi, aku nggak mau pernah bangun.",
+        "Sayang aku, kamu adalah kebahagiaan yang selalu aku cari.",
+        "Sayang aku, kalau kamu jadi awan, aku mau jadi langit yang selalu mendekapmu.",
+        "Sayang aku, kamu adalah alasan aku percaya bahwa cinta sejati itu ada.",
+        "Sayang aku, kalau cinta itu pertandingan, aku pasti juaranya karena punya kamu.",
+        "Sayang aku, setiap kali aku melihat matamu, aku merasa semua baik-baik saja.",
+        "Sayang aku, kamu adalah hal terbaik yang pernah terjadi dalam hidupku.",
+        "Sayang aku, kalau cinta itu buku, kamu adalah bab favoritku.",
+        "Sayang aku, aku nggak butuh sulap, karena cintamu sudah ajaib buatku.",
+        "Sayang aku, kamu adalah alasan aku selalu merasa bersyukur setiap hari.",
+        "Sayang aku, kalau kamu jadi bintang, aku mau jadi langit malam yang selalu melihatmu.",
+        "Sayang aku, kamu adalah cahaya yang selalu menerangi jalan gelapku.",
+        "Sayang aku, kalau cinta itu perjalanan, aku nggak mau sampai ke tujuan tanpamu.",
+        "Sayang aku, aku selalu merasa nyaman setiap kali kamu ada di dekatku.",
+        "Sayang aku, kamu adalah melodi yang selalu membuat hatiku bernyanyi.",
+        "Sayang aku, kalau kamu jadi bunga, aku mau jadi tanah yang selalu mendukungmu.",
+        "Sayang aku, kamu adalah warna yang selalu memperindah hariku.",
+        "Sayang aku, kalau cinta itu sungai, aku mau selalu mengalir bersamamu.",
+        "Sayang aku, kamu adalah detak jantung yang selalu membuatku hidup.",
+        "Sayang aku, kalau kamu jadi surga, aku mau selalu berdoa untuk sampai ke sana.",
+        "Sayang aku, kamu adalah inspirasi di balik setiap langkahku.",
+        "Sayang aku, kalau cinta itu musim, aku mau selalu bersamamu di setiap musim.",
+        "Sayang aku, kamu adalah semangat yang selalu membuatku bangkit setiap hari.",
+        "Sayang aku, kalau cinta itu bahasa, kamu adalah kata yang paling indah.",
+        "Sayang aku, kamu adalah mimpi yang selalu ingin aku wujudkan."
+    ];
+
+    function tampilkanGombalan() {
+        const gombalan = gombalanList[Math.floor(Math.random() * gombalanList.length)];
+        document.getElementById('gombalan').innerText = gombalan;
+    }
+
+</script>
+
+</html>
